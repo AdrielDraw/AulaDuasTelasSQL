@@ -1,7 +1,2 @@
-/application/
-/connectionFactory/
 /controller/
-/dao/
-/model/
-/module-info.class
 /view/

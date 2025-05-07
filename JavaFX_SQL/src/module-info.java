@@ -3,6 +3,7 @@ module JavaFX_SQL {
 	requires java.sql;
 	requires javafx.fxml;
 	requires javafx.base;
+	requires javafx.graphics;
 	
 	opens application to javafx.graphics, javafx.fxml;
 	opens controller to javafx.graphics, javafx.fxml;

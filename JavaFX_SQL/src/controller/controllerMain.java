@@ -18,10 +18,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import model.Funcionario;
 
 public class controllerMain implements Initializable {
 
+
+    @FXML
+    private TextField txtId;
+    
     @FXML
     private Button btApagar;
 
@@ -75,14 +80,57 @@ public class controllerMain implements Initializable {
     	}
     		
     	}
-
-    
+   
 
     @FXML
     void actionEditar(ActionEvent event) {
-    	
-    	
+    if (txtSenha.getText().equals(txtConfirmaSenha.getText())) {
+	
 
+        	
+    if (txtId.getText().equals("")) {
+		Alert msg = new Alert(AlertType.ERROR);
+		msg.setHeaderText("ERRO!");
+		msg.setContentText("Selecione um Funcionário para Editar.");
+		msg.show();	
+    	
+    	
+    }else {
+    	Funcionario funcionario = new Funcionario();
+    	FuncionarioDAO funcDAO = new FuncionarioDAO();
+    	
+    	funcionario.setNome(txtNome.getText());
+    	funcionario.setCargo(txtcargo.getText());
+    	funcionario.setCpf(txtCpf.getText());
+    	funcionario.setNivel(txtNivel.getText());
+    	funcionario.setSenha(txtSenha.getText());
+    	funcionario.setId(txtId.getText());
+    	Alert msg = new Alert(AlertType.CONFIRMATION);
+    	msg.setContentText("Deseja Realmente alterar os dados funcionário " + funcionario.getNome());
+    	Optional<ButtonType> resultado = msg.showAndWait();
+    	
+    	if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+    		funcDAO.update(funcionario);
+    		carregarTable();
+    		
+    		funcionario.setNome("");
+        	funcionario.setCargo("");
+        	funcionario.setCpf("");
+        	funcionario.setNivel("");
+        	funcionario.setSenha("");
+        	funcionario.setId("");
+    		
+    	} 	
+    	
+    
+    }
+    }else {
+		Alert msg = new Alert(AlertType.ERROR);
+		msg.setHeaderText("Senhas Diferentes");
+		msg.setContentText("Falha ao cadastrar! Você deve digitar as senhas iguais");
+		msg.show();	
+    	    	
+    }
     }
 
     @FXML
@@ -166,6 +214,24 @@ public class controllerMain implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		carregarTable();
+		
+		//metodo para capturar as informações selecionadas na tabela.
+		tableFuncionarios.setOnMouseClicked((MouseEvent clique)->{  
+		if (clique.getClickCount() == 2) {
+			Funcionario funcionario = new Funcionario();
+			int i = tableFuncionarios.getSelectionModel().getSelectedIndex();
+			funcionario = tableFuncionarios.getItems().get(i);
+			txtNome.setText(funcionario.getNome());
+			txtCpf.setText(funcionario.getCpf());
+			txtcargo.setText(funcionario.getCargo());
+			txtNivel.setText(funcionario.getNivel());
+			txtSenha.setText(funcionario.getSenha());
+			txtId.setText(funcionario.getId());
+			
+			
+			
+		}
+		});	
 	}
     
     

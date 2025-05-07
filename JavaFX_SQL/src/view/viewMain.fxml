@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.controllerMain">
    <children>
-      <TableView fx:id="tableFuncionarios" layoutX="29.0" layoutY="270.0" prefHeight="202.0" prefWidth="542.0">
+      <TableView fx:id="tableFuncionarios" layoutX="32.0" layoutY="296.0" prefHeight="181.0" prefWidth="542.0">
         <columns>
           <TableColumn fx:id="columnId" prefWidth="40.800048828125" text="ID" />
           <TableColumn fx:id="columnNome" prefWidth="154.39996337890625" text="Nome" />
@@ -20,20 +20,22 @@
             <TableColumn fx:id="columnNivel" prefWidth="48.800048828125" text="Nível" />
         </columns>
       </TableView>
-      <TextField fx:id="txtNome" layoutX="72.0" layoutY="61.0" />
-      <TextField fx:id="txtcargo" layoutX="72.0" layoutY="112.0" />
-      <TextField fx:id="txtCpf" layoutX="72.0" layoutY="162.0" />
-      <TextField fx:id="txtNivel" layoutX="256.0" layoutY="61.0" />
-      <PasswordField fx:id="txtSenha" layoutX="256.0" layoutY="115.0" />
-      <PasswordField fx:id="txtConfirmaSenha" layoutX="256.0" layoutY="165.0" />
-      <Button fx:id="btSalvar" layoutX="29.0" layoutY="237.0" mnemonicParsing="false" onAction="#actionSalvar" text="Salvar" />
-      <Button fx:id="btEditar" layoutX="100.0" layoutY="237.0" mnemonicParsing="false" onAction="#actionEditar" text="Editar" />
-      <Button fx:id="btApagar" layoutX="170.0" layoutY="237.0" mnemonicParsing="false" onAction="#actionApagar" text="Apagar" />
-      <Label layoutX="72.0" layoutY="44.0" text="Nome" />
-      <Label layoutX="72.0" layoutY="94.0" text="Cargo" />
-      <Label layoutX="72.0" layoutY="144.0" text="CPF(somente números)" />
-      <Label layoutX="256.0" layoutY="144.0" text="Confimar Senha" />
-      <Label layoutX="256.0" layoutY="94.0" text="Senha" />
-      <Label layoutX="256.0" layoutY="44.0" text="Nível" />
+      <TextField fx:id="txtNome" layoutX="80.0" layoutY="112.0" />
+      <TextField fx:id="txtcargo" layoutX="80.0" layoutY="163.0" />
+      <TextField fx:id="txtCpf" layoutX="80.0" layoutY="213.0" />
+      <TextField fx:id="txtNivel" layoutX="264.0" layoutY="112.0" />
+      <PasswordField fx:id="txtSenha" layoutX="264.0" layoutY="166.0" />
+      <PasswordField fx:id="txtConfirmaSenha" layoutX="264.0" layoutY="216.0" />
+      <Button fx:id="btSalvar" layoutX="32.0" layoutY="263.0" mnemonicParsing="false" onAction="#actionSalvar" text="Salvar" />
+      <Button fx:id="btEditar" layoutX="103.0" layoutY="263.0" mnemonicParsing="false" onAction="#actionEditar" text="Editar" />
+      <Button fx:id="btApagar" layoutX="173.0" layoutY="263.0" mnemonicParsing="false" onAction="#actionApagar" text="Apagar" />
+      <Label layoutX="80.0" layoutY="95.0" text="Nome" />
+      <Label layoutX="80.0" layoutY="145.0" text="Cargo" />
+      <Label layoutX="80.0" layoutY="195.0" text="CPF(somente números)" />
+      <Label layoutX="264.0" layoutY="195.0" text="Confimar Senha" />
+      <Label layoutX="264.0" layoutY="145.0" text="Senha" />
+      <Label layoutX="264.0" layoutY="95.0" text="Nível" />
+      <TextField fx:id="txtId" disable="true" layoutX="80.0" layoutY="61.0" prefHeight="26.0" prefWidth="78.0" />
+      <Label layoutX="80.0" layoutY="43.0" text="ID" />
    </children>
 </AnchorPane>
